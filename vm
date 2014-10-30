@@ -607,7 +607,7 @@ f_stop() # $host_vmdir $vm_name ($1)
 	echo
 	echo Sending ACPI shutdown to $1
 
-ps ax | grep $1 | awk '{print $1 }' | xargs kill -TERM > /dev/null 2>&1
+pkill -TERM -f $1 > /dev/null 2>&1
 sleep 10
 # Need to see if a delay is needed etc. for the cleanest possible shutdown.
 #	/usr/sbin/bhyvectl --force-poweroff --vm=$vm_names
